@@ -167,18 +167,18 @@ npm pack --dry-run
 
 ## GitHub Pages Demo
 
-The demo can be built for the shared Pages site at `https://vyashubhamkumar.github.io/lib/accessible-react-modal/`:
+The demo is published at `https://vyashubhamkumar.github.io/my_portfolio/lib/accessible-react-modal/`:
 
 ```sh
 npm run build:pages
 ```
 
-The output is written to `build/pages/lib/accessible-react-modal/`. Copy or deploy the contents of `build/pages/` into the root of the Pages site repository, preserving the `lib/accessible-react-modal/` directory. The generated HTML and asset URLs are already prefixed for that nested route.
+The default output is written to `build/pages/my_portfolio/lib/accessible-react-modal/`. The Pages repository serves this project under `/my_portfolio/`, so the source artifact path includes that prefix. Copy the contents of `build/pages/my_portfolio/lib/accessible-react-modal/` into `lib/accessible-react-modal/` on the `gh-pages` branch of the Pages repository. The generated HTML and asset URLs are prefixed for the final URL.
 
 To build another library for a sibling path, set `DOCS_BASE_PATH` and keep the same shared output layout:
 
 ```sh
-DOCS_BASE_PATH=/lib/some-other-lib-later npm run build:pages
+DOCS_BASE_PATH=/my_portfolio/lib/some-other-lib-later npm run build:pages
 ```
 
-That build writes to `build/pages/lib/some-other-lib-later/`. Merge each library's `build/pages/` contents into the Pages site so the library directories coexist. The normal `npm run build` behavior is unchanged.
+That build writes to `build/pages/my_portfolio/lib/some-other-lib-later/`; deploy its contents to `lib/some-other-lib-later/` on the same `gh-pages` branch. The normal `npm run build` behavior is unchanged.

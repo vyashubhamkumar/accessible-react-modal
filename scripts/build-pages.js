@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const defaultBasePath = '/lib/accessible-react-modal';
+const defaultBasePath = '/my_portfolio/lib/accessible-react-modal';
 const argument = process.argv.slice(2).find((value) => value.startsWith('--base-path='));
 const requestedBasePath = process.env.DOCS_BASE_PATH || argument?.slice('--base-path='.length) || defaultBasePath;
 
