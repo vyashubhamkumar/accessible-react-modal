@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalContextProvider } from './lib';
-import Modal from './components/Modal';
-import ModalComponents from './components/ModalScreens';
+import { DemoModalComponents } from './components/DemoModals';
 
 
 
@@ -13,8 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ModalContextProvider
-      Modal={Modal}
-      modalComponents={ModalComponents}
+      modalComponents={DemoModalComponents}
     >
       <App />
     </ModalContextProvider>

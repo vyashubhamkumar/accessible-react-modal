@@ -4,7 +4,6 @@ import { ModalTypes } from "./ModalScreens";
 
 function FirstModalScreen(props) {
   const { showModal } = useModal();
-  console.log("\nReRender")
   return (
     <>
       <p>FirstModal</p>
@@ -14,6 +13,7 @@ function FirstModalScreen(props) {
         onClick={(e) =>
           showModal({
             type: ModalTypes.SECOND,
+            ariaLabel: 'Second example dialog',
             props: { text: "anything passed from parent" },
           })
         }

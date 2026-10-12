@@ -1,20 +1,75 @@
 {
   "name": "accessible-react-modal",
   "version": "0.1.0",
-  "private": true,
+  "description": "Accessible, stackable modal management for React applications",
+  "license": "MIT",
+  "author": "Shubham Vyas",
+  "homepage": "https://github.com/vyashubhamkumar/accessible-react-modal#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vyashubhamkumar/accessible-react-modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vyashubhamkumar/accessible-react-modal/issues"
+  },
+  "keywords": [
+    "react",
+    "modal",
+    "dialog",
+    "accessibility",
+    "react-modal"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "react": ">=18 <20",
+    "react-dom": ">=18 <20"
+  },
   "dependencies": {
+    "@radix-ui/react-dialog": "1.1.15"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "tsup": "^8.5.1",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build:library && react-scripts build",
+    "build:library": "tsup src/lib/index.js --format esm,cjs --external react,react-dom --loader .js=jsx --clean",
     "test": "react-scripts test",
+    "typecheck": "tsc --noEmit --strict --skipLibCheck --moduleResolution node --module esnext --target es2020 --jsx react-jsx types/index.d.ts test-types/consumer.tsx",
+    "prepublishOnly": "npm run typecheck && npm run build:library && npm test -- --watchAll=false --runInBand",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
