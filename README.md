@@ -164,3 +164,21 @@ npm pack --dry-run
 ```
 
 `npm run build` builds the npm library to `dist/` and then builds the CRA demo to `build/`. The published package includes only `dist/`, `types/`, this README, and the MIT license. Review the dry-run package contents and verify the npm package name is publishable before publishing. Publishing is intentionally not part of the build scripts.
+
+## GitHub Pages Demo
+
+The demo can be built for the shared Pages site at `https://vyashubhamkumar.github.io/lib/accessible-react-modal/`:
+
+```sh
+npm run build:pages
+```
+
+The output is written to `build/pages/lib/accessible-react-modal/`. Copy or deploy the contents of `build/pages/` into the root of the Pages site repository, preserving the `lib/accessible-react-modal/` directory. The generated HTML and asset URLs are already prefixed for that nested route.
+
+To build another library for a sibling path, set `DOCS_BASE_PATH` and keep the same shared output layout:
+
+```sh
+DOCS_BASE_PATH=/lib/some-other-lib-later npm run build:pages
+```
+
+That build writes to `build/pages/lib/some-other-lib-later/`. Merge each library's `build/pages/` contents into the Pages site so the library directories coexist. The normal `npm run build` behavior is unchanged.

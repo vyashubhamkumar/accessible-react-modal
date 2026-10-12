@@ -66,6 +66,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run build:library && react-scripts build",
+    "build:pages": "node scripts/build-pages.js",
     "build:library": "tsup src/lib/index.js --format esm,cjs --external react,react-dom --loader .js=jsx --clean",
     "test": "react-scripts test",
     "typecheck": "tsc --noEmit --strict --skipLibCheck --moduleResolution node --module esnext --target es2020 --jsx react-jsx types/index.d.ts test-types/consumer.tsx",
