@@ -1,5 +1,22 @@
-node_modules/
-dist/
-build/
-coverage/
+/node_modules/
+/dist/
+/build/
+/coverage/
+/.nyc_output/
+
+# Local environment overrides; keep the shared development default and examples.
+.env*
+!.env.development
+!.env.example
+
+# Package-manager and tool output.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+.eslintcache
+*.tsbuildinfo
+.cache/
+
 .DS_Store
